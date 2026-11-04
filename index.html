@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الكنانة للسياحة والسفر | Al Kenana Tourism &amp; Travel</title>
+  <meta name="description" content="الكنانة للسياحة والسفر في دمشق: رحلات، حجوزات طيران وفنادق، تأشيرات، عمرة، وبرامج سياحية عائلية وشبابية.">
+  <meta name="theme-color" content="#07090c">
+  <link rel="icon" type="image/png" href="images/logo/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ================= 1. الهيرو ================= -->
+  <section class="hero" id="home">
+    <div class="hero__bgs" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+
+    <header class="nav" data-nav></header>
+
+    <h1 class="hero__title">
+      <span class="line"><span class="hero__t1"></span></span>
+      <span class="line"><span class="hero__t2"></span></span>
+    </h1>
+
+    <div class="hero__pager"><ul></ul></div>
+
+    <div class="hero__points"></div>
+
+    <button class="hero__next" type="button">اسحب <span class="arrows" aria-hidden="true">««</span></button>
+
+    <div class="hero__progress" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ================= 2. البرامج ================= -->
+  <section class="programs" id="programs">
+
+    <header class="sec-head reveal">
+      <p class="sec-head__kicker">محتار؟ هي اقتراحاتنا</p>
+      <h2>وجهات ننصحك فيها</h2>
+    </header>
+
+    <!-- الكروت بتنبنى من js/data.js -->
+    <div class="cards"></div>
+
+    <div class="rule-pair"><span></span><span></span></div>
+  </section>
+
+  <!-- ================= 3. سافر واستمتع ================= -->
+  <section class="about" id="about">
+    <div class="about__band" aria-hidden="true"></div>
+
+    <div class="about__hero">
+      <div class="about__bg" data-bg="images/about/background.jpg"
+           data-fallback="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=1920&q=80"></div>
+      <div class="about__shade" aria-hidden="true"></div>
+
+      <div class="about__content">
+        <h2 class="about__title" data-split>سافر<br>واستمتع<br>بعطلتك</h2>
+
+        <button class="play-link reveal" type="button" data-video>
+          <span class="play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          اختار عطلتك الحلوة
+        </button>
+
+        <p class="about__text reveal">
+          نخطط رحلتك من الألف للياء، كل اللي عليك تحزم شنطك وتستمتع.
+          بالكنانة منأمّنلك تذاكر الطيران والتأشيرات، حجوزات الفنادق،
+          برامج سياحية عائلية وشبابية، ورحلات العمرة، كلها من مكتب واحد بدمشق.
+        </p>
+      </div>
+
+      <div class="about__media">
+        <div class="thumbs">
+          <button class="thumb reveal-side" type="button" data-video style="--i:0" aria-label="شغّل الفيديو">
+            <img alt="رحلة بحرية" data-src="images/about/thumb-video.jpg"
+                 data-fallback="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+            <span class="play play--sm" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+          <figure class="thumb reveal-side" style="--i:1">
+            <img alt="قوارب على شاطئ فيروزي" data-src="images/about/thumb-2.jpg"
+                 data-fallback="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=900&q=80">
+          </figure>
+        </div>
+        <a class="social-link reveal" href="https://www.facebook.com/AlKenanaTourism" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.2V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>
+          <span dir="ltr">facebook.com/AlKenanaTourism</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= الفوتر (بينبنى من js/core.js) ================= -->
+  <footer class="footer" id="contact" data-footer></footer>
+
+  <!-- ================= نافذة الفيديو ================= -->
+  <div class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="فيديو">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box">
+      <button class="modal__close" type="button" data-close aria-label="إغلاق">×</button>
+      <div class="modal__frame"></div>
+      <p class="modal__empty" hidden>الفيديو قريباً — ضيف ملف <b dir="ltr">promo.mp4</b> بمجلد <b dir="ltr">images/video</b></p>
+    </div>
+  </div>
+
+</body>
+</html>

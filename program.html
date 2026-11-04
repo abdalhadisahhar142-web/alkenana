@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>برنامج سياحي | الكنانة للسياحة والسفر</title>
+  <meta name="description" content="تفاصيل البرنامج السياحي من الكنانة للسياحة والسفر: المسار، شو بيشمل، والحجز عالواتساب.">
+  <meta name="theme-color" content="#07090c">
+  <link rel="icon" type="image/png" href="images/logo/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lalezar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/program.js" defer></script>
+</head>
+<body>
+
+  <!-- ================= Hero ================= -->
+  <section class="page-hero">
+    <div class="page-hero__bg" data-cover></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <header class="nav" data-nav></header>
+
+    <div class="page-hero__content">
+      <nav class="crumbs" aria-label="مسار الصفحة">
+        <a href="index.html">الرئيسية</a><span aria-hidden="true">/</span>
+        <a href="index.html#programs">رحلاتنا</a><span aria-hidden="true">/</span>
+        <span data-field="name"></span>
+      </nav>
+      <h1 class="page-title split-lines"><span class="line"><span data-field="name"></span></span></h1>
+      <p class="page-hero__sub reveal" data-field="line"></p>
+      <ul class="meta reveal" style="--i:1" data-meta></ul>
+      <div class="page-hero__actions reveal" style="--i:2">
+        <a class="btn btn--lg" data-book target="_blank" rel="noopener">احجز عالواتساب</a>
+        <a class="btn btn--ghost btn--lg" href="#itinerary">شوف البرنامج</a>
+      </div>
+    </div>
+
+    <div class="rule page-hero__rule"><span class="rule__accent"></span></div>
+  </section>
+
+  <!-- ================= ليش لازم تزورها ================= -->
+  <section class="reasons" data-section="reasons">
+    <h2 class="reasons__title split-lines">
+      <span class="line"><span>ليش لازم</span></span>
+      <span class="line"><span>تزور <em data-field="name"></em></span></span>
+    </h2>
+
+    <div class="reasons__grid">
+      <div class="diamonds diamonds--a" data-diamonds="a"></div>
+      <ol class="reasons__list reveal" data-reasons></ol>
+      <div class="diamonds diamonds--b" data-diamonds="b"></div>
+    </div>
+
+    <div class="reasons__cta reveal">
+      <a class="btn btn--ghost" data-book target="_blank" rel="noopener">احجز الرحلة</a>
+    </div>
+  </section>
+
+  <!-- ================= البرنامج ================= -->
+  <section class="route" id="itinerary" data-section="itinerary">
+    <div class="route__intro">
+      <p class="route__lead reveal" data-route-lead></p>
+      <p class="route__note reveal" style="--i:1">
+        ما في داعي تفكر بالتنقلات والمواعيد والحجوزات، كلشي مرتّب من قبل.
+        منقلك وين تروح وشو تشوف، وانت بس <span class="hl">استمتع بالرحلة</span>.
+      </p>
+    </div>
+    <div class="route__line">
+      <div class="route__track" aria-hidden="true"><span></span></div>
+      <!-- المحطات بتنبنى من js/data.js -->
+    </div>
+  </section>
+
+  <!-- ================= شو بيشمل ================= -->
+  <section class="included" data-section="included">
+    <div class="included__bg" data-included-bg data-speed="-0.08"></div>
+    <div class="included__shade" aria-hidden="true"></div>
+    <h2 class="head-line">شو بيشمل البرنامج</h2>
+    <div class="included__grid" data-included></div>
+    <p class="included__ex reveal" data-excluded></p>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="cta__bg" data-cta-bg data-speed="-0.06"></div>
+    <h2 class="reveal">جاهز تحزم شنطك؟</h2>
+    <p class="reveal" style="--i:1">احجز مقعدك أو اسأل عن التفاصيل والأسعار، فريقنا جاهز يرد عليك.</p>
+    <div class="cta__actions reveal" style="--i:2">
+      <a class="btn btn--lg" data-book target="_blank" rel="noopener">احجز عالواتساب</a>
+      <a class="btn btn--ghost btn--lg" href="tel:0112311444">اتصل بالمكتب</a>
+    </div>
+  </section>
+
+  <!-- ================= برامج تانية ================= -->
+  <section class="section section--alt" data-section="others">
+    <h2 class="head-line head-line--sm">برامج تانية ممكن تعجبك</h2>
+    <div class="cards cards--inline" data-others></div>
+  </section>
+
+  <footer class="footer" id="contact" data-footer></footer>
+
+</body>
+</html>
