@@ -123,12 +123,57 @@ window.K = (() => {
   function renderNav(active) {
     const el = $('[data-nav]');
     if (!el) return;
+    const linkList = (cls = '') => NAV_LINKS
+      .map((l, i) => `<a href="${l.href}" class="${cls}${l.id === active ? ' is-active' : ''}" style="--i:${i}">${l.label}</a>`)
+      .join('');
+
     el.innerHTML = `
       ${brand()}
-      <nav class="nav__links" aria-label="القائمة الرئيسية">
-        ${NAV_LINKS.map((l) => `<a href="${l.href}"${l.id === active ? ' class="is-active"' : ''}>${l.label}</a>`).join('')}
-      </nav>
+      <nav class="nav__links" aria-label="القائمة الرئيسية">${linkList()}</nav>
+      <button class="nav__toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
       <span class="nav__line" aria-hidden="true"><span class="nav__indicator"></span></span>`;
+
+    // Mobile menu lives on <body> so it can cover the whole screen
+    const menu = document.createElement('div');
+    menu.className = 'mmenu';
+    menu.id = 'mobile-menu';
+    menu.setAttribute('aria-hidden', 'true');
+    menu.innerHTML = `
+      <div class="mmenu__head">
+        ${brand()}
+        <button class="nav__toggle is-close" type="button" aria-label="إغلاق القائمة"><span></span><span></span></button>
+      </div>
+      <nav class="mmenu__links" aria-label="القائمة">${linkList('mmenu__link')}</nav>
+      <div class="mmenu__foot">
+        <a class="btn" href="${waLink('programs')}" target="_blank" rel="noopener">${ICONS.whatsapp}راسلنا عالواتساب</a>
+        <a class="mmenu__phone" href="tel:${SITE.phones[0].number}">${SITE.phones[0].number}</a>
+        <p>${SITE.address}</p>
+      </div>`;
+    document.body.append(menu);
+  }
+
+  function initMobileMenu() {
+    const btn = $('.nav .nav__toggle');
+    const menu = $('.mmenu');
+    if (!btn || !menu) return;
+    const close = $('.nav__toggle.is-close', menu);
+
+    const setOpen = (open) => {
+      document.documentElement.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('aria-hidden', String(!open));
+      lockScroll(open);
+      (open ? close : btn).focus({ preventScroll: true });
+    };
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+
+    btn.addEventListener('click', () => setOpen(true));
+    close.addEventListener('click', () => setOpen(false));
+    $$('a', menu).forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen()) setOpen(false); });
+    matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches && isOpen()) setOpen(false); });
   }
 
   function initNav() {
@@ -150,6 +195,7 @@ window.K = (() => {
     addEventListener('resize', () => place(active));
     if (document.fonts) document.fonts.ready.then(() => place(active));
     place(active);
+    initMobileMenu();
   }
 
   /* ---------- Footer ---------- */
